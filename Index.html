@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>آکادمی بوکس قلعه | آموزش حرفه‌ای بوکس</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            overflow-x: hidden;
+            touch-action: pan-y;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 10px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        .logo {
+            width: 180px;
+            height: 180px;
+            background-color: #f5f5f5;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px auto;
+            border: 3px solid #000;
+            overflow: hidden;
+        }
+        
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        
+        .logo-placeholder {
+            font-size: 16px;
+            color: #777;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .section-title {
+            text-align: center;
+            font-size: 24px;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #000;
+            position: relative;
+            color: #000;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: #ff0000;
+        }
+        
+        /* Shop Section */
+        .shop {
+            padding: 20px 15px;
+            background-color: #fff;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .product {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+        }
+        
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 140px;
+            background-color: #f9f9f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 12px;
+        }
+        
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #000;
+        }
+        
+        .product-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e53935;
+            margin-bottom: 10px;
+        }
+        
+        .order-btn {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            background-color: #25D366;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 20px 15px;
+            background-color: #f8f8f8;
+        }
+        
+        .photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .photo {
+            width: 100%;
+            height: 120px;
+            background-color: #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .photo:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Ads Section */
+        .ads {
+            padding: 20px 15px;
+            background-color: #fff;
+        }
+        
+        .ad-container {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 15px;
+            border: 1px solid #eee;
+        }
+        
+        .ad-img {
+            width: 100%;
+            height: 180px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ad-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        
+        .ad-content {
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .ad-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #000;
+        }
+        
+        .ad-text {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 20px 15px;
+            background-color: #f8f8f8;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+        }
+        
+        .contact-details {
+            flex: 1;
+        }
+        
+        .contact-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 3px;
+            color: #000;
+        }
+        
+        .contact-text {
+            font-size: 14px;
+            color: #555;
+        }
+        
+        .map {
+            width: 100%;
+            height: 250px;
+            background-color: #e9e9e9;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Social Media */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            padding: 15px 0;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+        
+        .whatsapp { background-color: #25D366; }
+        .telegram { background-color: #0088cc; }
+        .instagram { background-color: #E1306C; }
+        .rubika { background-color: #00A4E0; }
+        
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+        }
+        
+        .copyright {
+            margin-top: 10px;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .logo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .section-title {
+                font-size: 22px;
+            }
+            
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
+            
+            .product-img {
+                height: 130px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            }
+        }
+        
+        /* Disable zooming */
+        body {
+            touch-action: pan-y;
+            -webkit-user-scalable: no;
+            user-scalable: no;
+        }
+        
+        input, textarea {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <div class="logo-placeholder">LOGO</div>
+                <!-- برای اضافه کردن لوگو:
+                <img src="لینک لوگوی شما" alt="آکادمی بوکس قلعه">
+                -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Shop Section -->
+    <section class="shop">
+        <h2 class="section-title">فروشگاه لوازم ورزشی</h2>
+        <div class="products">
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/150/000000/FFFFFF?text=دستکش+بوکس" alt="دستکش بوکس">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">دستکش بوکس حرفه‌ای</h3>
+                    <div class="product-price">1,290,000 تومان</div>
+                    <a href="https://wa.me/989123456789?text=سلام، می‌خوام دستکش بوکس حرفه‌ای سفارش بدم" class="order-btn">سفارش در واتساپ</a>
+                </div>
+            </div>
+            
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/150/000000/FFFFFF?text=کمربند+محافظ" alt="کمربند محافظ">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">کمربند محافظ بوکس</h3>
+                    <div class="product-price">650,000 تومان</div>
+                    <a href="https://wa.me/989123456789?text=سلام، می‌خوام کمربند محافظ بوکس سفارش بدم" class="order-btn">سفارش در واتساپ</a>
+                </div>
+            </div>
+            
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/150/000000/FFFFFF?text=لباس+ورزشی" alt="لباس ورزشی">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">ست لباس ورزشی</h3>
+                    <div class="product-price">890,000 تومان</div>
+                    <a href="https://wa.me/989123456789?text=سلام، می‌خوام ست لباس ورزشی سفارش بدم" class="order-btn">سفارش در واتساپ</a>
+                </div>
+            </div>
+            
+            <div class="product">
+                <div class="product-img">
+                    <img src="https://via.placeholder.com/150/000000/FFFFFF?text=کفش+بوکس" alt="کفش بوکس">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">کفش بوکس حرفه‌ای</h3>
+                    <div class="product-price">1,550,000 تومان</div>
+                    <a href="https://wa.me/989123456789?text=سلام، می‌خوام کفش بوکس حرفه‌ای سفارش بدم" class="order-btn">سفارش در واتساپ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <h2 class="section-title">گالری تصاویر</h2>
+        <div class="photos">
+            <div class="photo">
+                <img src="https://via.placeholder.com/300/000000/FFFFFF?text=تمرین+1" alt="تمرین">
+            </div>
+            <div class="photo">
+                <img src="https://via.placeholder.com/300/000000/FFFFFF?text=مسابقه+1" alt="مسابقه">
+            </div>
+            <div class="photo">
+                <img src="https://via.placeholder.com/300/000000/FFFFFF?text=تیم" alt="تیم">
+            </div>
+            <div class="photo">
+                <img src="https://via.placeholder.com/300/000000/FFFFFF?text=سالن" alt="سالن">
+            </div>
+            <div class="photo">
+                <img src="https://via.placeholder.com/300/000000/FFFFFF?text=تمرین+2" alt="تمرین">
+            </div>
+            <div class="photo">
+                <img src="https://via.placeholder.com/300/000000/FFFFFF?text=مسابقه+2" alt="مسابقه">
+            </div>
+            <div class="photo">
+                <img src="https://via.placeholder.com/300/000000/FFFFFF?text=مربی" alt="مربی">
+            </div>
+            <div class="photo">
+                <img src="https://via.placeholder.com/300/000000/FFFFFF?text=ورزشکاران" alt="ورزشکاران">
+            </div>
+        </div>
+    </section>
+
+    <!-- Ads Section -->
+    <section class="ads">
+        <h2 class="section-title">تبلیغات</h2>
+        <div class="ad-container">
+            <div class="ad-img">
+                <img src="https://via.placeholder.com/600x300/000000/FFFFFF?text=تبلیغات+آکادمی+بوکس+قلعه" alt="تبلیغات">
+            </div>
+            <div class="ad-content">
+                <h3 class="ad-title">دوره تابستانه بوکس</h3>
+                <p class="ad-text">ثبت نام دوره تابستانه با 20% تخفیف ویژه شروع شد. ظرفیت محدود!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2 class="section-title">تماس با ما</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                    <div class="contact-title">آدرس</div>
+                    <div class="contact-text">تهران، خیابان آزادی، کوچه بوکس، پلاک 12</div>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-details">
+                    <div class="contact-title">تلفن</div>
+                    <div class="contact-text">021-12345678 | 09123456789</div>
+                </div>
+            </div>
+            
+            <div class="contact-item">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-details">
+                    <div class="contact-title">ساعات کاری</div>
+                    <div class="contact-text">شنبه تا پنجشنبه: 8 صبح تا 10 شب</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="map">
+            <!-- نقشه گوگل -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.6793032261077!2d51.38827731526948!3d35.73248898018761!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQzJzU2LjkiTiA1McKwMjMnMjIuOSJF!5e0!3m2!1sen!2s!4v1651234567890!5m2!1sen!2s" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Social Media -->
+    <div class="social-media">
+        <a href="https://t.me/boxingghale" class="social-icon telegram">
+            <i class="fab fa-telegram"></i>
+        </a>
+        <a href="https://wa.me/989123456789" class="social-icon whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://rubika.ir/boxingghale" class="social-icon rubika">
+            <i class="fas fa-comment-dots"></i>
+        </a>
+        <a href="https://instagram.com/boxingghale" class="social-icon instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div>آکادمی بوکس قلعه</div>
+        <div class="copyright">© 2023 تمامی حقوق محفوظ است</div>
+    </footer>
+
+    <script>
+        // Disable zooming with double-tap
+        document.addEventListener('dblclick', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+        
+        // Disable pinch zoom
+        document.addEventListener('touchmove', function(event) {
+            if (event.scale !== 1) { event.preventDefault(); }
+        }, { passive: false });
+        
+        // Prevent context menu on long press
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>
